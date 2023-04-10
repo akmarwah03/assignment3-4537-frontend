@@ -37,7 +37,7 @@ function App({ accessToken, setAccessToken, refreshToken }) {
   useEffect(() => {
     try {
       axiosJWT
-        .get(`http://localhost:3000/api/v1/pokemons`, {
+        .get(`https://wandering-toad-moccasins.cyclic.app/api/v1/pokemons`, {
           headers: {
             Authorization: accessToken,
           },
@@ -54,7 +54,7 @@ function App({ accessToken, setAccessToken, refreshToken }) {
   const refreshAccessToken = async () => {
     try {
       const res = await axios.post(
-        "http://localhost:3000/auth/requestNewAccessToken",
+        "https://wandering-toad-moccasins.cyclic.app/auth/requestNewAccessToken",
         {},
         {
           headers: {

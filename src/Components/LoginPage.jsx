@@ -112,10 +112,13 @@ const LoginPage = ({
 
   const login = async (username, password) => {
     try {
-      const res = await axios.post("http://localhost:3000/auth/login", {
-        username,
-        password,
-      });
+      const res = await axios.post(
+        "https://wandering-toad-moccasins.cyclic.app/auth/login",
+        {
+          username,
+          password,
+        }
+      );
       setUser(res.data);
       const authHeader = res.headers["authorization"];
       console.log(JSON.stringify(res.headers));
@@ -133,11 +136,14 @@ const LoginPage = ({
 
   const register = async (username, password, email) => {
     try {
-      const res = await axios.post("http://localhost:3000/auth/register", {
-        username,
-        password,
-        email,
-      });
+      const res = await axios.post(
+        "https://wandering-toad-moccasins.cyclic.app/auth/register",
+        {
+          username,
+          password,
+          email,
+        }
+      );
       if (res.status == 200) {
         await login(username, password);
       }

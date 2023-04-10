@@ -26,7 +26,7 @@ function Report({ id, accessToken, setAccessToken, refreshToken }) {
   useEffect(() => {
     async function fetchData() {
       let response = await axiosJWT.get(
-        "http://localhost:3000/api/uniqueAPIUsers",
+        "https://wandering-toad-moccasins.cyclic.app/api/uniqueAPIUsers",
         {
           headers: {
             Authorization: accessToken,
@@ -35,15 +35,18 @@ function Report({ id, accessToken, setAccessToken, refreshToken }) {
       );
       let data = await response.data;
       setUniqueAPI(data);
-      response = await axiosJWT.get("http://localhost:3000/api/topAPIUsers", {
-        headers: {
-          Authorization: accessToken,
-        },
-      });
+      response = await axiosJWT.get(
+        "https://wandering-toad-moccasins.cyclic.app/api/topAPIUsers",
+        {
+          headers: {
+            Authorization: accessToken,
+          },
+        }
+      );
       data = await response.data;
       setTopAPI(data);
       response = await axiosJWT.get(
-        "http://localhost:3000/api/topEndpointUsers",
+        "https://wandering-toad-moccasins.cyclic.app/api/topEndpointUsers",
         {
           headers: {
             Authorization: accessToken,
@@ -53,7 +56,7 @@ function Report({ id, accessToken, setAccessToken, refreshToken }) {
       data = await response.data;
       setTopEndpoints(data);
       response = await axiosJWT.get(
-        "http://localhost:3000/api/errorByEndPoint",
+        "https://wandering-toad-moccasins.cyclic.app/api/errorByEndPoint",
         {
           headers: {
             Authorization: accessToken,
@@ -62,11 +65,14 @@ function Report({ id, accessToken, setAccessToken, refreshToken }) {
       );
       data = await response.data;
       setErrors(data);
-      response = await axiosJWT.get("http://localhost:3000/api/recentErrors", {
-        headers: {
-          Authorization: accessToken,
-        },
-      });
+      response = await axiosJWT.get(
+        "https://wandering-toad-moccasins.cyclic.app/api/recentErrors",
+        {
+          headers: {
+            Authorization: accessToken,
+          },
+        }
+      );
       data = await response.data;
       setRecentErrors(data);
     }
